@@ -19,11 +19,12 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#59D5A0',
         width: '95%',
-        height: 90,
+        height: 80,
         borderRadius: 10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly',
+        marginVertical: 5,
     },
 
     icon: {
