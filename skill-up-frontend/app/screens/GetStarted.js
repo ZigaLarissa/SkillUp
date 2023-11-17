@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 function GetStarted(props) {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require('../assets/background.png')} />
+            <Image style={styles.image} source={require('../assets/background1.png')} />
             <Text style={styles.bgtext} >Start Small, Go Big!</Text>
             <Text style={styles.smtext} >Focus on one small, positive habit a day.</Text>
 
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
 
     smtext: {
-        color: '#1D3035',
+        color: '#545454',
         fontSize: 20,
         position: 'absolute',
         top: 600,
