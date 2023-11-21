@@ -7,7 +7,9 @@ import BottomNav from '../components/BottomNav';
 function CurrentHabits(props) {
     return (
         <View style={styles.container}>
-            {/* <Text style={styles.motivation}>You are Kicking It!</Text> */}
+            <View style={styles.motivationBox}>
+                <Text style={styles.motivationText}>Way to go Larissa!</Text>
+            </View>
 
             <View style={styles.box}>
                 <View style={styles.content}>
@@ -51,22 +53,31 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
 
-    // motivation: {
-    //     color: '#1D3035',
-    //     fontSize: 16,
-    //     fontWeight: 'bold',
-    //     alignSelf: 'center',
-    //     top: 65,
-    //     marginBottom: 70,
-    // },
+    motivationBox: {
+        backgroundColor: '#EE7EA0',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 400,
+        height: 60,
+        borderRadius: 10,
+        alignSelf: 'center',
+        top: 80,
+    },
+    
+    motivationText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+    },
 
     box: {
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        maxHeight: '38%',
+        maxHeight: '34%',
         width: '100%',
-        top: 50, //remove this if you want to show the motivation text
+        top: 100, //remove this if you want to show the motivation text
         marginVertical: 10,
     },
 
@@ -78,7 +89,7 @@ const styles = StyleSheet.create({
     },
 
     bgtext: {
-        color: '#1D3035',
+        color: '#1D3557',
         fontWeight: 'bold',
         fontSize: 20,
         alignSelf: 'center',
