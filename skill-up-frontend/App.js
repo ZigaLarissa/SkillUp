@@ -9,7 +9,7 @@ import Days from './app/components/Days';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Days />
+      <AllHabits />
 
       <StatusBar style="auto" />
     </View>

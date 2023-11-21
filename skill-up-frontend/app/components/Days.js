@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     container: {
         height: 60,
         paddingHorizontal: 10,
+        marginBottom: 10,
     },
     
     contentContainer: {
@@ -47,14 +48,12 @@ const styles = StyleSheet.create({
     },
 
     day: {
-        backgroundColor: '#fff',
+        backgroundColor: 'lightgrey',
         alignItems: 'center',
         justifyContent: 'center',
         width: 80,
         height: 35,
         margin: 5,
-        borderStyle: 'solid',
-        borderWidth: 1,
         borderRadius: 10,
     },
 
