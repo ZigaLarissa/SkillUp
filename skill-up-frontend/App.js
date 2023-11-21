@@ -3,11 +3,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import CurrentHabits from './app/screens/CurrentHabits';
+import AllHabits from './app/screens/AllHabits';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <CurrentHabits />
+      <AllHabits />
 
       <StatusBar style="auto" />
     </View>
