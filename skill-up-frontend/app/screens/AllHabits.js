@@ -12,17 +12,7 @@ function AllHabits(props) {
 
            <ScrollView contentContainerStyle={styles.habits}>
                 <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
-                <Habit />
+            
            </ScrollView>
 
            <BottomNav />

@@ -8,8 +8,8 @@ function Habit(props) {
         <View style={styles.container}>
             <Ionicons style={styles.icon} name="checkmark-circle-outline" />
             <View style={styles.content}>
-                <Text style={styles.bgtext}>I will open Visual Studio Code</Text>
-                <Text style={styles.smtext} >After, I open my laptop.</Text>
+                <Text style={styles.bgtext}>Study UI/UX</Text>
+                <Text style={styles.smtext} >Learn UI/UX design on Figma.</Text>
             </View>
         </View>
     );

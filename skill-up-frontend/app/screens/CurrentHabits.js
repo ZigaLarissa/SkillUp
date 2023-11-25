@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     },
 
     motivationBox: {
-        backgroundColor: '#EE7EA0',
+        backgroundColor: '#000',
         alignItems: 'center',
         justifyContent: 'center',
         width: 400,

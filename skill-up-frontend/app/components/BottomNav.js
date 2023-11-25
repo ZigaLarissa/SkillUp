@@ -15,7 +15,7 @@ function BottomNav(props) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#59D5A0',
+        backgroundColor: '#000',
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',
