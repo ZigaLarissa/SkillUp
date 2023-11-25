@@ -2,11 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
+
+
 import Days from '../components/Days';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ColorLabels from '../components/ColorLabels';
 
-function AddHabit(props) {
+function AddHabit({ navigation }) {
     const [newHabit, setNewHabit] = React.useState('');
     const [newDescription, setNewDescription] = React.useState('');
 
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        top: 100,
+        //top: 20, // This is not working with the NavigationContainer
     },
 
     habtext: {

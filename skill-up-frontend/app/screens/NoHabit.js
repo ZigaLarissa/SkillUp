@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, Text, StyleSheet, View } from 'react-native';
 import BottomNav from '../components/BottomNav';
 
-function NoHabit(props) {
+function NoHabit({ navigation }) {
     return (
         <ImageBackground
         style={styles.bg}

@@ -3,11 +3,13 @@ import { View, StyleSheet } from 'react-native';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-function BottomNav(props) {
+function BottomNav({ navigation }) {
     return (
         <View style={styles.container}>
             <Ionicons style={styles.icon} name="home-outline"/>
-            <Ionicons style={styles.mainicon} name="add-circle-sharp"/>
+            <Ionicons
+            onPress={() => navigation.navigate('Add New Habit')} 
+            style={styles.mainicon} name="add-circle-sharp"/>
             <Ionicons style={styles.icon} name="folder-outline"/>
         </View>
     );

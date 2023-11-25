@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-function GetStarted(props) {
+function GetStarted({ navigation }) {
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={require('../assets/background1.png')} />
             <Text style={styles.bgtext} >Start Small, Go Big!</Text>
             <Text style={styles.smtext} >Focus on one small, positive habit a day.</Text>
 
-            <TouchableOpacity style={styles.button} onPress={() => console.log('Pressed')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NoHabit')}>
                 <Text style={styles.buttontext} >Get Started</Text>
             </TouchableOpacity>
         </View>
