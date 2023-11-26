@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        //top: 20, // This is not working with the NavigationContainer
+        paddingTop: 80,
     },
 
     habtext: {

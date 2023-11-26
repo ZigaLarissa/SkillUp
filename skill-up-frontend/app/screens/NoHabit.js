@@ -9,7 +9,7 @@ function NoHabit({ navigation }) {
         source={require('../assets/background2.png')}>
             <Text style={styles.bgtext}>Create New Habit.</Text>
             <Text style={styles.smtext}>Your current habits will appear here, create one by tapping on the plus button below.</Text>
-            <BottomNav />
+            <BottomNav navigation={navigation}/>
         </ImageBackground>
     );
 }

@@ -8,7 +8,7 @@ function BottomNav({ navigation }) {
         <View style={styles.container}>
             <Ionicons style={styles.icon} name="home-outline"/>
             <Ionicons
-            onPress={() => navigation.navigate('Add New Habit')} 
+            onPress={() => navigation.navigate('AddHabit')} 
             style={styles.mainicon} name="add-circle-sharp"/>
             <Ionicons style={styles.icon} name="folder-outline"/>
         </View>
