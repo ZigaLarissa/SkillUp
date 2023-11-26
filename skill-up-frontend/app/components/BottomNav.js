@@ -1,16 +1,27 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function BottomNav({ navigation }) {
     return (
         <View style={styles.container}>
-            <Ionicons style={styles.icon} name="home-outline"/>
-            <Ionicons
-            onPress={() => navigation.navigate('AddHabit')} 
+            {/* <Ionicons
+            onPress={() => navigation.push('CurrentHabits')}
+            style={styles.icon} name="home-outline"/> */}
+
+            <TouchableOpacity onPress={() => navigation.push('CurrentHabits')}>
+                <Ionicons style={styles.icon} name="home-outline" />
+            </TouchableOpacity>
+
+            <Ionicons 
+            onPress={() => navigation.push('AddHabit')}
             style={styles.mainicon} name="add-circle-sharp"/>
-            <Ionicons style={styles.icon} name="folder-outline"/>
+            
+
+            <Ionicons 
+            onPress={() => navigation.push('AllHabits')}
+            style={styles.icon} name="folder-outline"/>
         </View>
     );
 }
@@ -19,6 +30,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#000',
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-around',
         width: '100%',
         height: 70,

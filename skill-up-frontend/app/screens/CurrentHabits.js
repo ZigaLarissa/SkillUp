@@ -4,7 +4,7 @@ import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import Habit from '../components/Habit';
 import BottomNav from '../components/BottomNav';
 
-function CurrentHabits(props) {
+function CurrentHabits({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.motivationBox}>
@@ -41,7 +41,7 @@ function CurrentHabits(props) {
                 </ScrollView>
             </View>
 
-            <BottomNav />
+            <BottomNav navigation={navigation}/>
         </View>
     );
 }

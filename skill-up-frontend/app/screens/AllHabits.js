@@ -5,7 +5,7 @@ import Days from '../components/Days';
 import Habit from '../components/Habit';
 import BottomNav from '../components/BottomNav';
 
-function AllHabits(props) {
+function AllHabits({ navigation }) {
     return (
         <View style={styles.container}>
            <Days />
@@ -15,7 +15,7 @@ function AllHabits(props) {
             
            </ScrollView>
 
-           <BottomNav />
+           <BottomNav navigation={navigation} />
         </View>
     );
 }

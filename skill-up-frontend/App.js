@@ -8,6 +8,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import GetStarted from './app/screens/GetStarted';
 import NoHabit from './app/screens/NoHabit';
 import AddHabit from './app/screens/AddHabit';
+import CurrentHabits from './app/screens/CurrentHabits';
+import AllHabits from './app/screens/AllHabits';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +21,8 @@ export default function App() {
         <Stack.Screen name="GetStarted" component={GetStarted} />
         <Stack.Screen name="NoHabit" component={NoHabit} />
         <Stack.Screen name="AddHabit" component={AddHabit} />
+        <Stack.Screen name="CurrentHabits" component={CurrentHabits} />
+        <Stack.Screen name="AllHabits" component={AllHabits} />
       </Stack.Navigator>
     </NavigationContainer>
   );
