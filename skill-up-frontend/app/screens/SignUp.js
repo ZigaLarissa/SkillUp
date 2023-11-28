@@ -23,7 +23,7 @@ function SignUp({ navigation }) {
         }
 
         catch (error) {
-            console.error('Error Adding User: ', error);
+            console.error('Error Adding User: ', error.response.data.detail);
         }
     };
 
