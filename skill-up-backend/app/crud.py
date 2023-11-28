@@ -1,3 +1,8 @@
+# FastAPI CRUD (Create, Read, Update, Delete) operations
+# CRUD operations are the most common operations in any database-driven application.
+# FastAPI provides a convenient way to perform CRUD operations using SQLAlchemy ORM (Object Relational Mapper).
+
+
 from sqlalchemy.orm import Session
 
 from . import models, schemas

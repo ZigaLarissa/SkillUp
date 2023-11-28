@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 
+import axios from 'axios';
+
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function SignUp({ navigation }) {
@@ -9,14 +11,25 @@ function SignUp({ navigation }) {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    const onSend = () => {
-        console.warn('Adding: ', userName);
+    const onSend = async () => {
+        try {
+            const response = await axios.post('', {
+                userName,
+                email,
+                password,
+            });
+            console.log('User Added Successfully: ', response.data);
 
-        // setUserName('');
-        // setEmail('');
-        // setPassword(''); //no need for cleaning up
+            // setUserName('');
+            // setEmail('');
+            // setPassword(''); //no need for cleaning up
 
-        navigation.navigate('NoHabit');
+            navigation.navigate('NoHabit'); //navigate to NoHabit screen
+        }
+
+        catch (error) {
+            console.error('Error Adding User: ', error);
+        }
     };
 
     return (
