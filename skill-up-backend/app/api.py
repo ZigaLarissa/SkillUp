@@ -19,8 +19,7 @@ def get_db():
 
 #cors origins
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "*"
 ]
 
 #adding cors middleware

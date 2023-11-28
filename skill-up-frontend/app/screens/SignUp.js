@@ -7,22 +7,17 @@ import axios from 'axios';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function SignUp({ navigation }) {
-    const [userName, setUserName] = React.useState('');
+
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const onSend = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/users/', {
-                userName,
+            const response = await axios.post('http://192.168.1.66:8080/users/', {
                 email,
                 password,
             });
             console.log('User Added Successfully: ', response.data);
-
-            // setUserName('');
-            // setEmail('');
-            // setPassword(''); //no need for cleaning up
 
             navigation.navigate('NoHabit'); //navigate to NoHabit screen
         }
@@ -35,13 +30,6 @@ function SignUp({ navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Sign Up</Text>
-
-            <TextInput
-            value={userName}
-            onChangeText={setUserName}
-            style={styles.input}
-            placeholder='Username'
-            />
 
             <TextInput
             value={email}
