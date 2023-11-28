@@ -13,6 +13,8 @@ function SignUp({ navigation }) {
 
         setUserName('');
         setEmail('');
+
+        navigation.navigate('NoHabit');
     };
 
     return (

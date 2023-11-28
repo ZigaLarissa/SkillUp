@@ -8,7 +8,7 @@ function GetStarted({ navigation }) {
             <Text style={styles.bgtext} >Start Small, Go Big!</Text>
             <Text style={styles.smtext} >Focus on one small, positive habit a day.</Text>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NoHabit')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
                 <Text style={styles.buttontext} >Get Started</Text>
             </TouchableOpacity>
         </View>

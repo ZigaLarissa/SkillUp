@@ -17,6 +17,8 @@ function AddHabit({ navigation }) {
 
         setNewHabit('');
         setNewDescription('');
+
+        navigation.navigate('CurrentHabits');
     };
 
     return (

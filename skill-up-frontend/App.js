@@ -19,8 +19,8 @@ export default function App() {
     <NavigationContainer style={styles.container}>
       <Stack.Navigator 
       screenOptions={{headerShown: false}}>
-        <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="GetStarted" component={GetStarted} />
+        <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="NoHabit" component={NoHabit} />
         <Stack.Screen name="AddHabit" component={AddHabit} />
         <Stack.Screen name="CurrentHabits" component={CurrentHabits} />
