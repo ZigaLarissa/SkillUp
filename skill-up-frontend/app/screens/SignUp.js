@@ -7,12 +7,14 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 function SignUp({ navigation }) {
     const [userName, setUserName] = React.useState('');
     const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
     const onSend = () => {
         console.warn('Adding: ', userName);
 
-        setUserName('');
-        setEmail('');
+        // setUserName('');
+        // setEmail('');
+        // setPassword(''); //no need for cleaning up
 
         navigation.navigate('NoHabit');
     };
@@ -33,6 +35,14 @@ function SignUp({ navigation }) {
             onChangeText={setEmail}
             style={styles.input}
             placeholder='Email'
+            />
+
+            <TextInput
+            value={password}
+            onChangeText={setPassword}
+            style={styles.input}
+            placeholder='Password'
+            secureTextEntry={true}
             />
 
             <TouchableOpacity style={styles.button} onPress={onSend}>
