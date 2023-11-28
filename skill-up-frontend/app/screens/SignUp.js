@@ -13,7 +13,7 @@ function SignUp({ navigation }) {
 
     const onSend = async () => {
         try {
-            const response = await axios.post('', {
+            const response = await axios.post('http://127.0.0.1:8000/users/', {
                 userName,
                 email,
                 password,
