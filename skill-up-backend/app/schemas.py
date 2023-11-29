@@ -34,3 +34,8 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+# 3. Create Pydantic models for the Login
+class Login(BaseModel):
+    email: str
+    password: str
