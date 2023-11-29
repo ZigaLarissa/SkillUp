@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List, Optional
 
 # 1. Create Pydantic models for the Item
 class ItemBase(BaseModel):
@@ -30,7 +31,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     is_active: bool
-    items: list[Item] = []
+    items: List[Item] = []
 
     class Config:
         orm_mode = True
@@ -39,3 +40,12 @@ class User(UserBase):
 class Login(BaseModel):
     email: str
     password: str
+
+# 4. Create Pydantic models for the Token
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
