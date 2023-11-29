@@ -1,9 +1,11 @@
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, APIRouter, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from . import crud, models, schemas, authentication
+from . import crud, models, schemas, JWTtoken
 from .database import SessionLocal, engine
+from .hashing import Hash
+from fastapi.security import OAuth2PasswordRequestForm
 
 models.Base.metadata.create_all(bind=engine) #creating all tables in the database
 
@@ -30,6 +32,27 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+
+router = APIRouter(
+    tags=['Authentication']
+)
+
+@router.post("/login")
+def login(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.email == request.username).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail= f"Invalid Credentials.")
+    
+    if not Hash.verify(user.password, request.password):
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail= f"Incorrect password.")
+    
+    
+    access_token = JWTtoken.create_access_token(data={"sub": user.email})
+    return {"access_token": access_token, "token_type": "bearer"}
+
 
 #creating routes for the homepage
 @app.post("/users/", response_model=schemas.User)
@@ -63,8 +86,5 @@ def create_item_for_user(
 
 @app.get("/items/", response_model=list[schemas.Item])
 def read_items(skip: int = 0, limit = 100, db: Session = Depends(get_db)):
-    items = crud.get_items(dg, skip=skip, limit=limit)
+    items = crud.get_items(db=db, skip=skip, limit=limit)
     return items
-
-#adding routes for authentication
-app.include_router(authentication.router)
