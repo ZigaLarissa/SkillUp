@@ -6,13 +6,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 function BottomNav({ navigation }) {
     return (
         <View style={styles.container}>
-            {/* <Ionicons
+            <Ionicons
             onPress={() => navigation.push('CurrentHabits')}
-            style={styles.icon} name="home-outline"/> */}
-
-            <TouchableOpacity onPress={() => navigation.push('CurrentHabits')}>
-                <Ionicons style={styles.icon} name="home-outline" />
-            </TouchableOpacity>
+            style={styles.icon} name="home-outline"/>
 
             <Ionicons 
             onPress={() => navigation.push('AddHabit')}

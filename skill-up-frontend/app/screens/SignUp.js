@@ -13,7 +13,7 @@ function SignUp({ navigation }) {
 
     const onSend = async () => {
         try {
-            const response = await axios.post('http://192.168.1.66:8080/users/', {
+            const response = await axios.post('http://192.168.1.65:8081/users/', {
                 email,
                 password,
             });
@@ -23,7 +23,7 @@ function SignUp({ navigation }) {
         }
 
         catch (error) {
-            console.error('Error Adding User: ', error.response.data.detail);
+            console.error('Error Adding User: ', error);
         }
     };
 

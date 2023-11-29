@@ -19,7 +19,7 @@ def get_db():
 
 #cors origins
 origins = [
-    "http://localhost:8081", # for react native ui connection.
+    "*"
 ]
 
 #adding cors middleware
