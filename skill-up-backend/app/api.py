@@ -2,7 +2,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from . import crud, models, schemas
+from . import crud, models, schemas, authentication
 from .database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine) #creating all tables in the database
@@ -65,3 +65,6 @@ def create_item_for_user(
 def read_items(skip: int = 0, limit = 100, db: Session = Depends(get_db)):
     items = crud.get_items(dg, skip=skip, limit=limit)
     return items
+
+#adding routes for authentication
+app.include_router(authentication.router)
