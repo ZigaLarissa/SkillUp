@@ -11,6 +11,7 @@ import AddHabit from './app/screens/AddHabit';
 import CurrentHabits from './app/screens/CurrentHabits';
 import AllHabits from './app/screens/AllHabits';
 import SignUp from './app/screens/SignUp';
+import Login from './app/screens/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name="AddHabit" component={AddHabit} />
         <Stack.Screen name="CurrentHabits" component={CurrentHabits} />
         <Stack.Screen name="AllHabits" component={AllHabits} />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

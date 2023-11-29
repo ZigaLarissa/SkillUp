@@ -6,20 +6,18 @@ import axios from 'axios';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import login from './Login';
-
-function SignUp({ navigation }) {
+function Login({ navigation }) {
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const onSend = async () => {
         try {
-            const response = await axios.post('http://192.168.1.65:8081/users/', {
+            const response = await axios.post('http://192.168.1.65:8081/login/', {
                 email,
                 password,
             });
-            console.log('User Added Successfully: ', response.data);
+            console.log('User logged in Successfully: ', response.data);
 
             navigation.navigate('NoHabit'); //navigate to NoHabit screen
         }
@@ -31,7 +29,7 @@ function SignUp({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Sign Up</Text>
+            <Text style={styles.text}>Login</Text>
 
             <TextInput
             value={email}
@@ -50,17 +48,8 @@ function SignUp({ navigation }) {
 
             <TouchableOpacity style={styles.button} onPress={onSend}>
                 <Ionicons style={styles.addicon} name="add-circle-sharp"/>
-                <Text style={styles.buttontext} >Sign Up</Text>
+                <Text style={styles.buttontext} >Login</Text>
             </TouchableOpacity>
-
-            <View style={styles.logtext}>
-                <Text style={styles.maxtext}>Already have an account? </Text> 
-                <TouchableOpacity>
-                    <Text
-                    onPress={() => navigation.navigate('Login')} 
-                    style={styles.mintext}>Login.</Text>
-                </TouchableOpacity>
-            </View>
         </View>
     );
 }
@@ -113,24 +102,6 @@ const styles = StyleSheet.create({
         fontSize: 24,
         alignSelf: 'center',
     },
-
-    logtext: {
-        alignSelf: 'center',
-        marginTop: 10,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-
-    mintext: {
-        color: '#000',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-
-    maxtext: {
-        color: '#000',
-        fontSize: 18,
-    },
 });
 
-export default SignUp;
+export default Login;
