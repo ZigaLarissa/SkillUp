@@ -21,4 +21,4 @@ class User(Base):
     email = Column(String)
     password = Column(String)
 
-    tasks = relationship("Blog", back_populates="creator")
+    tasks = relationship("Task", back_populates="creator")
