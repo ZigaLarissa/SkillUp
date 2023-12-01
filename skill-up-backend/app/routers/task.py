@@ -20,7 +20,7 @@ def get_all(db: Session = Depends(get_db), current_user: schemas.User = Depends(
 def create_task(request: schemas.Task, db: Session = Depends(get_db), current_user: schemas.User = Depends(auth2.get_current_user)):
     return task.create(request, db)
 
-@router.get("/{id}", status_code=200, response_model=schemas.ShowBlog)
+@router.get("/{id}", status_code=200, response_model=schemas.ShowTask)
 def get_one(id: int, db: Session = Depends(get_db), current_user: schemas.User = Depends(auth2.get_current_user)):
     return task.get_one(id, db)
 
