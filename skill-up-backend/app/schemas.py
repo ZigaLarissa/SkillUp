@@ -11,13 +11,23 @@ class UserBase(BaseModel):
     email: str
 
     class Config():
-        from_attributes = True
+        orm_mode = True
 
 
 class Task(TaskBase):
 
     class Config():
-        from_attributes = True
+        orm_mode = True
+
+
+
+class ShowTask(BaseModel): 
+    title: str
+    body: str
+    creator: UserBase
+
+    class Config():
+        orm_mode = True
 
 
 class User(BaseModel):
@@ -26,7 +36,7 @@ class User(BaseModel):
     password: str
 
     class Config():
-        from_attributes = True
+        orm_mode = True
 
 
 class ShowUser(BaseModel):
@@ -35,16 +45,7 @@ class ShowUser(BaseModel):
     tasks: List[Task] = []
 
     class Config():
-        from_attributes = True
-
-
-class ShowTask(BaseModel):
-    title: str
-    body: str
-    creator: UserBase
-
-    class Config():
-        from_attributes = True
+        orm_mode = True
 
 
 class Login(BaseModel):
