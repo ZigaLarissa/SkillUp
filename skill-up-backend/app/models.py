@@ -25,7 +25,8 @@ class Item(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     description = Column(String, index=True)
-    owner_id = Column(Integer, ForeignKey("users.id")) #adding foreign key to users table
-
+    #owner_id = Column(Integer, ForeignKey("users.id")) #adding foreign key to users table
+    owner_email = Column(String, ForeignKey("users.email")) #adding foreign key to users table
+    
     # relationship with User model
     owner = relationship("User", back_populates="items")

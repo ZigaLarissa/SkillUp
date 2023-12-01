@@ -13,7 +13,7 @@ class ItemCreate(ItemBase):
 # for reading items
 class Item(ItemBase):
     id: int
-    owner_id: int
+    owner_email: str # to know which user owns the item
 
     class Config:
         orm_mode = True
@@ -47,5 +47,6 @@ class Token(BaseModel):
     token_type: str
 
 
+# 5. Create Pydantic models for the TokenData
 class TokenData(BaseModel):
-    email: Optional[str] = None
+    email: Optional[str] | None = None

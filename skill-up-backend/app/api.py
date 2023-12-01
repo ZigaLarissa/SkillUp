@@ -1,10 +1,13 @@
-from fastapi import Depends, FastAPI, HTTPException, APIRouter, status
+from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from typing import Annotated
 
 from . import crud, models, schemas, JWTtoken
 from .database import SessionLocal, engine
 from .hashing import Hash
+from .auth2 import get_current_user
+
 from fastapi.security import OAuth2PasswordRequestForm
 
 models.Base.metadata.create_all(bind=engine) #creating all tables in the database
@@ -73,11 +76,13 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
 
 
-@app.post("/users/{user_id}/items/", response_model=schemas.Item)
+@app.post("/users/me/items/", response_model=schemas.Item)  # new
 def create_item_for_user(
-    user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
+    item: schemas.ItemCreate, 
+    db: Session = Depends(get_db),
+    current_user: schemas.User = Depends(get_current_user)
 ):
-    return crud.create_user_item(db=db, item=item, user_id=user_id)
+    return crud.create_user_item(db=db, item=item, current_user=current_user)
 
 
 @app.get("/items/", response_model=list[schemas.Item])

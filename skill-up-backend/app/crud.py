@@ -4,9 +4,12 @@
 
 
 from sqlalchemy.orm import Session
+from fastapi import Depends, HTTPException
+from typing import Annotated
 
-from . import models, schemas
+from . import models, schemas, auth2
 from .hashing import Hash
+
 
 def get_user(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.id == user_id).first()
@@ -30,8 +33,8 @@ def get_items(db: Session, skip: int = 0, limit: int = 100):
 
 
 # create item function
-def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
-    db_item = models.Item(**item.dict(), owner_id=user_id)
+def create_user_item(db: Session, item: schemas.ItemCreate, current_user: schemas.TokenData):
+    db_item = models.Item(**item.dict(), owner_email=current_user.email)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
