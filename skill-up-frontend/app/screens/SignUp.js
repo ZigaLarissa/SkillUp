@@ -25,7 +25,7 @@ function SignUp({ navigation }) {
         }
 
         catch (error) {
-            console.error('Error Adding User: ', error.response.data);
+            console.error('Error Adding User: ', error.response.data.detail);
         }
     };
 

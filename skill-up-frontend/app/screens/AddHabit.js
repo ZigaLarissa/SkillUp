@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
+import axios from 'axios'; // Import axios library
 
 
 import Days from '../components/Days';
@@ -12,13 +13,24 @@ function AddHabit({ navigation }) {
     const [newHabit, setNewHabit] = React.useState('');
     const [newDescription, setNewDescription] = React.useState('');
 
-    const onSend = () => {
-        console.warn('Adding: ', newHabit);
+    const onSend = async () => {
+        try {
+            // Make an API call to your FastAPI backend
+            const response = await axios.post('http://192.168.1.65:8081/users/me/items/', {
+                title: newHabit,
+                description: newDescription,
+            });
 
-        setNewHabit('');
-        setNewDescription('');
+            console.warn('Adding: ', newHabit);
+            console.log('Response from the server:', response.data);
 
-        navigation.navigate('CurrentHabits');
+            //setNewHabit('');
+            //setNewDescription('');
+
+            navigation.navigate('CurrentHabits');
+        } catch (error) {
+            console.error('Error creating habit:', error.message);
+        }
     };
 
     return (
