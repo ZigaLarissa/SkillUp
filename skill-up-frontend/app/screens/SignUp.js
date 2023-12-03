@@ -28,7 +28,7 @@ function SignUp({ navigation }) {
             // Automatically login after signup
             //funtion will go here!
 
-            navigation.navigate('NoHabit'); //navigate to NoHabit screen
+            navigation.navigate('Login'); //navigate to NoHabit screen
         } catch (error) {
             console.error('Error Adding or Logging In User: ', error.response.data.detail);
         }
