@@ -5,7 +5,13 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "049074dc-208d-4ac0-86c1-f23bc772f684"
+      }
+    },
+    "owner": "larissa_ziga"
   },
   "name": "skill-up"
 }
