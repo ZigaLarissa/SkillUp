@@ -18,11 +18,6 @@ function CurrentHabits({ navigation }) {
                 </View>
                 <ScrollView contentContainerStyle={styles.contentContainer} style={styles.habits}>
                     <Habit />
-                    <Habit />
-                    <Habit />
-                    <Habit />
-                    <Habit />
-                    <Habit />
                 </ScrollView>
             </View>
 
@@ -32,12 +27,7 @@ function CurrentHabits({ navigation }) {
                     <Text style={styles.smtext}>You have 2 completed habits.</Text>
                 </View>
                 <ScrollView contentContainerStyle={styles.contentContainer} style={styles.habits}>
-                    <Habit />
-                    <Habit />
-                    <Habit />
-                    <Habit />
-                    <Habit />
-                    <Habit />
+                    {/* <Habit /> // uncomment this to see the completed habits */}
                 </ScrollView>
             </View>
 

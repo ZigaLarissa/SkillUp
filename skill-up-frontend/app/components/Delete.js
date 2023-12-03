@@ -1,26 +1,31 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-function Delete(props) {
-    onClick = async () => {
+function Delete({ taskId, onDelete }) {
+    const onClick = async () => {
         const accessToken = await AsyncStorage.getItem('accessToken');
         try {
-              const response = await axios.delete('http://192.168.1.65:5000/task/1',
-              {
+            const response = await axios.delete(`http://192.168.1.65:5000/task/${taskId}`, {},
+            {
                 headers: {
-                    Authorization: `Bearer ${accessToken}`, // auth token
+                    Authorization: `Bearer ${accessToken}`,
                 }
             });
 
             console.log('Deleted Successfully! ', response.data);
+
+            // If onDelete is provided as a prop, invoke it to trigger a re-render or any other necessary action
+            if (onDelete) {
+                onDelete();
+            }
         } catch (err) {
-            console.log(err);
+            console.log('Error deleting task:', err);
         }
     };
+    
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={onClick}>
@@ -43,6 +48,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
         alignSelf: 'center',
     },
-})
+});
 
 export default Delete;
