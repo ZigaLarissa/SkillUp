@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 
 import axios from 'axios'; // Import axios library
 
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Import AsyncStorage library
+
 
 import Days from '../components/Days';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -16,12 +18,15 @@ function AddHabit({ navigation }) {
     const onSend = async () => {
         try {
             // Make an API call to your FastAPI backend
-            const response = await axios.post('http://192.168.1.65:8081/task/', {
+            // Retrieve token
+            const accessToken = await AsyncStorage.getItem('accessToken');
+
+            const response = await axios.post('http://192.168.1.65:5000/task/', {
                 title: newHabit,
-                description: newDescription,
+                body: newDescription,
             }, {
                 headers: {
-                    Authorization: `Bearer ${token}`, // auth token
+                    Authorization: `Bearer ${accessToken}`, // auth token
                 }
             });
 
