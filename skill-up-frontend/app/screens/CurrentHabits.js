@@ -8,7 +8,7 @@ function CurrentHabits({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.motivationBox}>
-                <Text style={styles.motivationText}>Way to go Larissa!</Text>
+                <Text style={styles.motivationText}>Do it for the plot!</Text>
             </View>
 
             <View style={styles.box}>

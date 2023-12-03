@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function Update(props) {
     return (
         <View style={styles.container}>
-            <Ionicons style={styles.updateicon} name="pencil-outline" />
+            <TouchableOpacity onPress={() => console.log('Edit button pressed')}>
+                <Ionicons style={styles.updateicon} name="pencil-outline" />
+            </TouchableOpacity>
         </View>
     );
 }
@@ -14,7 +16,7 @@ function Update(props) {
 const styles = StyleSheet.create({
     container: {
         width: '10%',
-        height: '50%',
+        height: '40%',
         justifyContent: 'center',
         alignItems: 'center',
     },

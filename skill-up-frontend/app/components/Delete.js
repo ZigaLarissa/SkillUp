@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function Delete(props) {
     return (
         <View style={styles.container}>
-            <Ionicons style={styles.deleteicon} name="close-circle-outline" />
+            <TouchableOpacity onPress={() => console.log('Delete button pressed')}>
+                <Ionicons style={styles.deleteicon} name="close-circle-outline" />
+            </TouchableOpacity>
         </View>
     );
 }

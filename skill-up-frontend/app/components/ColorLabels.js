@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 function ColorLabels(props) {
     return (
         <View style={styles.container}>
-            <View style={styles.color1} />
+            <TouchableOpacity style={styles.color1} onPress={() => console.log('color 1 pressed')}/>
             <View style={styles.color2} />
             <View style={styles.color3} />
             <View style={styles.color4} />
