@@ -4,14 +4,18 @@ import { useState } from 'react';
 
 import axios from 'axios';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Ionicons from '@expo/vector-icons/Ionicons';
+
+
 
 function Login({ navigation }) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const response = async () => {
+    const handleLogin = async () => {
         try {
             const requestBody = {
               username: username,
@@ -35,8 +39,15 @@ function Login({ navigation }) {
                 },
               },
             );
-        
-            return response.data;
+
+            // Store token
+            await AsyncStorage.setItem('accessToken', response.data.access_token);
+            
+            console.log('Token stored!', response.data);
+
+            // Navigate to NoHabit screen
+            navigation.navigate('NoHabit');
+
           } catch (err) {
             console.log(err.message);
             console.log(err);
@@ -64,7 +75,7 @@ function Login({ navigation }) {
             secureTextEntry={true}
             />
 
-            <TouchableOpacity style={styles.button} onPress={response}>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Ionicons style={styles.addicon} name="add-circle-sharp"/>
                 <Text style={styles.buttontext} >Login</Text>
             </TouchableOpacity>
