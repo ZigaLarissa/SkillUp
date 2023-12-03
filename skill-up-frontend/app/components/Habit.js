@@ -1,11 +1,41 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Import AsyncStorage library
+
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Delete from './Delete';
 import Update from './Update';
 
 function Habit(props) {
+    const onSend = async () => {
+        try {
+            // Make an API call to your FastAPI backend
+            // Retrieve token
+            const accessToken = await AsyncStorage.getItem('accessToken');
+    
+            const response = await axios.get('http://192.168.1.65:5000/task/', {
+                title: newHabit,
+                body: newDescription,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`, // auth token
+                }
+            });
+    
+            console.warn('Adding: ', newHabit);
+            console.log('Response from the server:', response);
+    
+            //setNewHabit('');
+            //setNewDescription('');
+    
+            navigation.navigate('CurrentHabits');
+        } catch (error) {
+            console.error('Error creating habit:', error.message);
+        }
+    
+    };
+    
     return (
         <View style={styles.container}>
             <Ionicons style={styles.icon} name="checkmark-circle-outline" />
