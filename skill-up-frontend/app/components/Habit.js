@@ -2,6 +2,8 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Delete from './Delete';
+import Update from './Update';
 
 function Habit(props) {
     return (
@@ -11,6 +13,8 @@ function Habit(props) {
                 <Text style={styles.bgtext}>Study UI/UX</Text>
                 <Text style={styles.smtext} >Learn UI/UX design on Figma.</Text>
             </View>
+            <Update />
+            <Delete />
         </View>
     );
 }
@@ -25,26 +29,28 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         marginVertical: 5,
+        paddingHorizontal: 10,
     },
 
     icon: {
         color: '#1D3035',
         fontSize: 50,
+        paddingHorizontal: 10,
     },
 
     content: {
-        width: '80%',
+        width: '60%',
     },
 
     bgtext: {
         color: '#1D3035',
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 18,
     },
 
     smtext: {
         color: '#545454',
-        fontSize: 18,
+        fontSize: 14,
     },
 })
 
