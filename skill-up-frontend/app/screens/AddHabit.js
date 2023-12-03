@@ -16,13 +16,17 @@ function AddHabit({ navigation }) {
     const onSend = async () => {
         try {
             // Make an API call to your FastAPI backend
-            const response = await axios.post('http://192.168.1.65:8081/users/me/items/', {
+            const response = await axios.post('http://192.168.1.65:8081/task/', {
                 title: newHabit,
                 description: newDescription,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`, // auth token
+                }
             });
 
             console.warn('Adding: ', newHabit);
-            console.log('Response from the server:', response.data);
+            console.log('Response from the server:', response);
 
             //setNewHabit('');
             //setNewDescription('');

@@ -8,32 +8,50 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 function Login({ navigation }) {
 
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    const onSend = async () => {
+    const response = async () => {
         try {
-            const response = await axios.post('http://192.168.1.65:8081/login/', {
-                email,
-                password,
-            });
-            console.log('User logged in Successfully: ', response.data);
+            const requestBody = {
+              username: username,
+              password: password,
+            };
 
-            navigation.navigate('NoHabit'); //navigate to NoHabit screen
-        }
-
-        catch (error) {
-            console.error('Error Adding User: ', error);
+            console.log(requestBody);
+        
+            const response = await axios.post(
+              'http://192.168.1.65:5000/login/',
+              requestBody,
+              
+              {
+                auth: {
+                  username: username,
+                  password: password,
+                },
+        
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              },
+            );
+        
+            return response.data;
+          } catch (err) {
+            console.log(err.message);
+            console.log(err);
         }
     };
+    
 
+      
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Login</Text>
 
             <TextInput
-            value={email}
-            onChangeText={setEmail}
+            value={username}
+            onChangeText={setUsername}
             style={styles.input}
             placeholder='Email'
             />
@@ -46,7 +64,7 @@ function Login({ navigation }) {
             secureTextEntry={true}
             />
 
-            <TouchableOpacity style={styles.button} onPress={onSend}>
+            <TouchableOpacity style={styles.button} onPress={response}>
                 <Ionicons style={styles.addicon} name="add-circle-sharp"/>
                 <Text style={styles.buttontext} >Login</Text>
             </TouchableOpacity>

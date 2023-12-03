@@ -10,28 +10,40 @@ import login from './Login';
 
 function SignUp({ navigation }) {
 
+    const [name, setName] = React.useState(''); //useState('') is the initial value of the variable [name, setName] is the variable name
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const onSend = async () => {
         try {
-            const response = await axios.post('http://192.168.1.65:8081/users/', {
+            // Signup
+            const signupResponse = await axios.post('http://192.168.1.65:5000/User/', {
+                name,
                 email,
                 password,
             });
-            console.log('User Added Successfully: ', response.data);
+
+            console.log('User Added Successfully: ', signupResponse.data);
+
+            // Automatically login after signup
+            //funtion will go here!
 
             navigation.navigate('NoHabit'); //navigate to NoHabit screen
-        }
-
-        catch (error) {
-            console.error('Error Adding User: ', error.response.data.detail);
+        } catch (error) {
+            console.error('Error Adding or Logging In User: ', error.response.data.detail);
         }
     };
 
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Sign Up</Text>
+
+            <TextInput
+            value={name}
+            onChangeText={setName}
+            style={styles.input}
+            placeholder='Name'
+            />
 
             <TextInput
             value={email}
