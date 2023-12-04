@@ -25,7 +25,7 @@ function Login({ navigation }) {
             console.log(requestBody);
         
             const response = await axios.post(
-              'http://192.168.1.65:5000/login/',
+              'http://localhost:5000/login/',
               requestBody,
               
               {

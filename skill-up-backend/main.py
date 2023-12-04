@@ -28,5 +28,6 @@ app.include_router(user.router)
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="192.168.1.65", port=5000)
+    uvicorn.run(app, host="localhost", port=5000)
+    #uvicorn.run(app, host="192.168.1.65", port=5000)
     #uvicorn.run(app, host="10.10.10.118", port=5000)
