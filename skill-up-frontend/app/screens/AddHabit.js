@@ -21,7 +21,7 @@ function AddHabit({ navigation }) {
             // Retrieve token
             const accessToken = await AsyncStorage.getItem('accessToken');
 
-            const response = await axios.post('http://192.168.1.65:5000/task/', {
+            const response = await axios.post('https://skillup-1-w1211441.deta.app/task/', {
                 title: newHabit,
                 body: newDescription,
             }, {

@@ -8,7 +8,7 @@ function Delete({ taskId, onDelete }) {
     const onClick = async () => {
         const accessToken = await AsyncStorage.getItem('accessToken');
         try {
-            const response = await axios.delete(`http://192.168.1.65:5000/task/${taskId}`, {},
+            const response = await axios.delete(`https://skillup-1-w1211441.deta.app/task/${taskId}`, {},
             {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,

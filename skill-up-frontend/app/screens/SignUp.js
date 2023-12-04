@@ -17,7 +17,7 @@ function SignUp({ navigation }) {
     const onSend = async () => {
         try {
             // Signup
-            const signupResponse = await axios.post('http://192.168.1.65:5000/User/', {
+            const signupResponse = await axios.post('https://skillup-1-w1211441.deta.app/User/', {
                 name,
                 email,
                 password,

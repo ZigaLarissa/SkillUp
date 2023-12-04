@@ -13,7 +13,7 @@ function Habit() {
   const fetchData = async () => {
     try {
       const accessToken = await AsyncStorage.getItem('accessToken');
-      const response = await axios.get('http://192.168.1.65:5000/task/', {
+      const response = await axios.get('https://skillup-1-w1211441.deta.app/task/', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

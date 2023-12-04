@@ -25,7 +25,7 @@ function Login({ navigation }) {
             console.log(requestBody);
         
             const response = await axios.post(
-              'http://localhost:5000/login/',
+              'https://skillup-1-w1211441.deta.app/login',
               requestBody,
               
               {
