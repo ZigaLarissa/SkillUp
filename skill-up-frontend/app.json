@@ -1,8 +1,16 @@
 {
   "expo": {
-    "name": "skill-up",
-    "slug": "skill-up",
+    "name": "skillUp App",
+    "slug": "skillup-app",
+    "description": "This is a self directed learning and new habits development app.",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/skillup-icon.png",
+    "splash": {
+      "image": "./app/assets/skillup-splash-screen.png",
+      "resizemode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
